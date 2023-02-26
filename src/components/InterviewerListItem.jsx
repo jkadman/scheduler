@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import "components/InterviewerListItem.scss"
 
 const InterviewerListItem = (props) => {
+  console.log('id', props)
   // console.log('ULI:', props)
   // console.log('setInterviewer', props.setInterviewer)
 
@@ -19,6 +20,7 @@ const InterviewerListItem = (props) => {
 
   return (
     <li className={interviewerClass}
+      selected={props.selected}
       onClick={() => props.setInterviewer(props.id)}
     >
       <img
