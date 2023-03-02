@@ -8,6 +8,7 @@ import "components/InterviewerList.scss"
 
 const InterviewerList = (props) => {
   console.log('IL:', props)
+  console.log('propsvalue', props.value)
   const interviewerMap = props.interviewers.map(interviewer => {
     console.log('IntName:', interviewer.name)
     return(
