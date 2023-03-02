@@ -12,23 +12,16 @@ const InterviewerListItem = (props) => {
     "interviewers__item--selected": props.selected
   })
 
-  const selectedName = () => {
-    if (props.selected) {
-      return `${props.name}`
-    }
-  }
-
   return (
     <li className={interviewerClass}
       onClick={props.setInterviewer}
-      selected={props.selected}
     >
       <img
-        className={interviewerClass}
+        className="interviewers__item-image"
         src={props.avatar}
-        name={props.name}
+        alt={props.name}
       />
-      {selectedName()}
+      {props.selected && props.name}
     </li>
   )
 }
