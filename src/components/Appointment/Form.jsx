@@ -20,13 +20,18 @@ const Form = (props) => {
           />
         </form>
         <InterviewerList
-          setInterviewer={() => props.onChange(interviewer.id)}
+          interviewer={props.interviewers}
+          setInterviewer={() => props.setInterviewer(interviewer.id)}
         />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger  >Cancel</Button>
-          <Button confirm  >Save</Button>
+          <Button danger  
+            onCancel={props.onCancel}
+          >Cancel</Button>
+          <Button confirm 
+            onSave={props.onSave} 
+          >Save</Button>
         </section>
       </section>
     </main>
