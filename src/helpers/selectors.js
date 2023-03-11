@@ -4,13 +4,13 @@ const state = {
       id: 1,
       name: "Monday",
       appointments: [1, 2, 3],
-      interviewers: ['Paul', 'Gina', 'Newt']
+      interviewers: ["Tori Malcolm"]
     },
     {
       id: 2,
       name: "Tuesday",
       appointments: [4, 5],
-      interviewers: ['Fred', 'Basmath', 'Heka']
+      interviewers: ["Tori Malcolm"]
     }
   ],
   appointments: {
@@ -41,52 +41,54 @@ const state = {
     }
   }
 };
-// export function getAppointmentsForDay(state, day) {
-//   const newArr = [];
+export function getAppointmentsForDay(state, day) {
+  const newArr = [];
   
-//   const filteredDay = state.days.filter(element => element.name === day)
-//   if (filteredDay[0] === undefined) {
-//     return newArr
-//   }
-//   filteredDay[0].appointments.forEach(app => {
-//     newArr.push(state.appointments[app])
-//   })
+  const filteredDay = state.days.filter(element => element.name === day)
+  if (filteredDay[0] === undefined) {
+    return newArr
+  }
+  filteredDay[0].appointments.forEach(app => {
+    newArr.push(state.appointments[app])
+  })
 
-//   return newArr
-// }
+  return newArr
+}
 
-// export function getInterview(state, interview) {
-//   let interviewObj = {};
+export function getInterview(state, interview) {
+  let interviewObj = {};
   
-//   if (!interview) {
-//     return null
-//   }
+  if (!interview) {
+    return null
+  }
 
-//   const intNum = state.interviewers[interview.interviewer]
+  const intNum = state.interviewers[interview.interviewer]
 
-//   interviewObj = {
-//     student: interview.student,
-//     interviewer: intNum
-//   }
+  interviewObj = {
+    student: interview.student,
+    interviewer: intNum
+  }
 
-//   return interviewObj
+  return interviewObj
   
-// }
+}
 
-function getInterviewersForDay(state, day) {
+export function getInterviewersForDay(state, day) {
   const { days, interviewers } = state;
   const filteredDay = days.find(item => day === 
 item.name
 );
+console.log('filteredDay', filteredDay)
+
   if (days.length < 1 || filteredDay === undefined) {
     return [];
   }
   const daysInterviewers = filteredDay.interviewers.map(
-    interview => interviewers[interview]
+    interviewer => interviewers[interviewer]
   );
+  console.log('DI', daysInterviewers)
   return daysInterviewers;
 } 
 
-// export function getInterviewersForDay(state, day) {
+// console.log(getInterviewersForDay(state, "Monday"))
 
-// }
