@@ -20,24 +20,40 @@ const Appointment = (props) => {
     props.interview ? SHOW : EMPTY
   );
     
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
+
+  function save(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer
+    };
+  }
+  
+        
   console.log('indexprops', props)
   return (
     <article className="appointment">
       <Header 
         id={props.id}
         time={props.time}
+        bookInterview={bookInterview}
       />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
+          bookInterview={bookInterview}
         />
       )}
       {mode === CREATE && (
         <Form 
           interviewers = {props.interviewers}
           onCancel={() => back(EMPTY)}
+          bookInterview={bookInterview}
+          save={save}
         />
       )}
     </article>
