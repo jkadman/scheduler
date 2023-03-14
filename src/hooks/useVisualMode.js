@@ -10,10 +10,6 @@ export default function useVisualMode(initial) {
     );
   }; 
 
-  //When transition is called, we need to add the new mode to our history.
-//When back is called, we should set the mode to the previous item in our history array.
-// 
-
 const back = () => {
   setHistory(prev => (prev.length > 1 ? prev.slice(0, -1) : prev));
 }; 
@@ -21,4 +17,3 @@ const back = () => {
   return { mode: history[history.length - 1], transition, back }; 
 }
 
-// ['empty']
