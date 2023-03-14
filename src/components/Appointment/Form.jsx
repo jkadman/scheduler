@@ -6,7 +6,6 @@ const Form = (props) => {
   console.log('formprops', props)
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
-
   // resets state
   const reset = () => {
     setStudent("") 
@@ -45,7 +44,7 @@ const Form = (props) => {
             onClick={cancel}
           >Cancel</Button>
           <Button confirm 
-            onSave={props.onSave} 
+            onClick={() => props.save(student, interviewer)}
           >Save</Button>
         </section>
       </section>

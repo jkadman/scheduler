@@ -35,7 +35,47 @@ export default function Application(props) {
     })
   }, [])
 
- 
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    console.log('appointmentBI', appointment)
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    return axios.put(`/api/appointments/${id}`, {interview})
+      .then(res => {setState({...state, appointments})});   
+  }
+
+  function cancelInterview(id) {
+    // console.log('cancelInterview:', id, interview)
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    }
+    return axios.delete(`/api/appointments/${id}`)
+      .then(res => setState({...state, appointments}))    
+  };
+
+  // function editInterview(id, interview) {
+  //   const appointment = {
+  //     ...state.appointments[id],
+  //     interview: {...interview}
+  //   };
+  //   const appointments = {
+  //     ...state.appointments,
+  //     [id]: appointment
+  //   };
+  //   console.log('editInterview', appointment)
+  // return axios.put(`/api/appointments/${id}`, {interview})
+  //   .then(res => setState({...state, appointments}))
+  // }
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const interviewers = getInterviewersForDay(state, state.day)
@@ -48,6 +88,9 @@ export default function Application(props) {
         {...element}
         interview={interview}
         interviewers={interviewers}
+        bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
+        // editInterview={editInterview}
       />
     )
   })
@@ -66,6 +109,9 @@ export default function Application(props) {
             days={state.days}
             value={state.day}
             onChange={setDay}
+            bookInterview={bookInterview}
+            cancelInterview={cancelInterview}
+            // editInterview={editInterview}
           />
         </nav>
         <img
@@ -76,7 +122,13 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {appointmentData} 
-        <Appointment key="last" time="5pm" />
+        <Appointment 
+          key="last" 
+          time="5pm" 
+          bookInterview={bookInterview} 
+          cancelInterview={cancelInterview}
+          // editInterview={editInterview}
+          />
       </section>
     </main>
   );
