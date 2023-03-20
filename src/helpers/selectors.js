@@ -4,13 +4,13 @@ const state = {
       id: 1,
       name: "Monday",
       appointments: [1, 2, 3],
-      interviewers: ["Tori Malcolm"]
+      interviewers: [2]
     },
     {
       id: 2,
       name: "Tuesday",
       appointments: [4, 5],
-      interviewers: ["Tori Malcolm"]
+      interviewers: [2]
     }
   ],
   appointments: {
@@ -78,15 +78,13 @@ export function getInterviewersForDay(state, day) {
   const filteredDay = days.find(item => day === 
 item.name
 );
-console.log('filteredDay', filteredDay)
 
   if (days.length < 1 || filteredDay === undefined) {
     return [];
   }
   const daysInterviewers = filteredDay.interviewers.map(
-    interviewer => interviewer
+    interviewer => interviewers[interviewer] 
   );
-  console.log('DI', daysInterviewers)
   return daysInterviewers;
 } 
 

@@ -7,13 +7,13 @@ const state = {
       id: 1,
       name: "Monday",
       appointments: [1, 2, 3],
-      interviewers: ["Tori Malcolm"]
+      interviewers: [2]
     },
     {
       id: 2,
       name: "Tuesday",
       appointments: [4, 5],
-      interviewers: ["Tori Malcolm"]
+      interviewers: [2]
     }
   ],
   appointments: {
@@ -54,14 +54,11 @@ test("getAppointmentsForDay returns an array", () => {
 
 test("getAppointmentsForDay returns an array with a length matching the number of appointments for that day", () => {
   const result = getAppointmentsForDay(state, "Monday");
-  console.log('result', result.length)
   expect(result.length).toEqual(3);
 });
 
 test("getAppointmentsForDay returns an array containing the correct appointment objects", () => {
   const [first, second] = getAppointmentsForDay(state, "Tuesday");
-  console.log('getAppfirst', first)
-  console.log('getappsecond', second)
   expect(first).toEqual(state.appointments["4"]);
   expect(second).toEqual(state.appointments["5"]);
 });
@@ -99,23 +96,18 @@ test("getInterview returns null if no interview is booked", () => {
 // getInterviewerForDay tests
 test("getInterviewerForDay returns an array", () => {
   const result = getInterviewersForDay(state, "Monday");
-  console.log('test1result', result)
   expect(Array.isArray(result)).toBe(true);
   
 });
 
 test("getInterviewerForDay returns an array with a length matching the number of appointments for that day", () => {
   const result = getInterviewersForDay(state, "Monday");
-  console.log('result', result.length)
   expect(result.length).toEqual(1);
 });
 
-test("getInterviewerForDay returns an array containing the correct interviewer object", () => {
+/**/test("getInterviewerForDay returns an array containing the correct interviewer object", () => {
   const [interviewer1] = getInterviewersForDay(state, "Monday");
-  console.log('first', interviewer1)
-  // console.log('second', second)
-  expect(interviewer1).toEqual(state.interviewers["2"].name);
-  // expect(interviewer2).toEqual(state.interviewers["2"].name);
+  expect(interviewer1).toEqual(state.interviewers["2"]);
 });
 
 test("getInterviewerForDay returns an empty array when the days data is empty", () => {
