@@ -8,10 +8,7 @@ import { PropTypes } from "prop-types";
 // each interviewer id is visible in actions when clicked
 
 const InterviewerList = (props) => {
-  console.log('IL:', props)
-  console.log('propsvalue', props.value)
   const interviewerMap = props.interviewers.map(interviewer => {
-    console.log('IntName:', interviewer.name)
     return(
       <InterviewerListItem
         key={interviewer.id}
@@ -22,7 +19,6 @@ const InterviewerList = (props) => {
       />
     )
   })
-  console.log('interviewerMap', interviewerMap)
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light"></h4>
