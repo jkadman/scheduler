@@ -1,6 +1,7 @@
 import React from "react";
 import InterviewerListItem from "./InterviewerListItem";
 import "components/InterviewerList.scss"
+import { PropTypes } from "prop-types";
 
 // map array and passinfo
 // person 3 is hightlighted when selected
@@ -29,5 +30,7 @@ const InterviewerList = (props) => {
     </section>
   )
 }
-
+InterviewerList.prototype = {
+  interviewer: PropTypes.array.isRequired
+}
 export default InterviewerList;
