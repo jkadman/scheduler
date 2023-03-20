@@ -84,11 +84,11 @@ console.log('filteredDay', filteredDay)
     return [];
   }
   const daysInterviewers = filteredDay.interviewers.map(
-    interviewer => interviewers[interviewer]
+    interviewer => interviewer
   );
   console.log('DI', daysInterviewers)
   return daysInterviewers;
 } 
 
-// console.log(getInterviewersForDay(state, "Monday"))
+console.log(getInterviewersForDay(state, "Monday"))
 
