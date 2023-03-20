@@ -8,7 +8,6 @@ export default function useApplicationData() {
     appointments: {},
     interviewers: {}
   });
-  console.log('applength', setState.appointments)
   const setDay = day => setState({ ...state, day });
 
   useEffect(() => {
@@ -36,7 +35,6 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    console.log('bookapp', appointments)
     return axios.put(`/api/appointments/${id}`, {interview})
       .then(() => {
         setState({...state, appointments})
@@ -74,23 +72,6 @@ export default function useApplicationData() {
   
     setState(prev => ({ ...prev, days: updatedDays }));
   };
-  
-  
-
-  // }
-  // number of spots inside day object
-  // number available relates to appointments that dont have an interview booked
-  // we should update the spots object when we cancel or book an interview
-  // what type or data is spots, what is spots initial state?  A value of an object key
-
-  // updateSpots, if updatespots is true, - 1 from spots.  If updateSpots is false, +1 to spots
-  // access the spots object before setting state, much like with appointments in the bookInterview function
-
-  // to update spots place .then in bookInterview (spots - 1) and cancelInterview (spot + 1)
-  // if appointment is null spots = appointment
-
-  // connection between daylist and appointments, is that days has an array of what appointments correspond to what interviews
-  // for each appointment[element.appointments] {if (appointment[element.appointments = null ]) {days.spots++}}
 
   return {
     state,
