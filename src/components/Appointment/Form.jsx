@@ -17,6 +17,7 @@ const Form = (props) => {
   const cancel = () => {
     reset()
     props.onCancel()
+    setError("")
   }
 
   function validate() {
@@ -28,7 +29,7 @@ const Form = (props) => {
       setError("Please select an interviewer");
       return;
     }
-  
+    setError("");
     props.save(student, interviewer);
   }
   
