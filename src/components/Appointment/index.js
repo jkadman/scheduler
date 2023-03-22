@@ -57,9 +57,8 @@ const Appointment = (props) => {
   
 
 
-  console.log('indexprops', props)
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header 
         id={props.id}
         time={props.time}

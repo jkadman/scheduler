@@ -33,7 +33,6 @@ export default function Application(props) {
       />
     )
   })
-  console.log(appointmentData)
   return (
     <main className="layout">
       <section className="sidebar">
