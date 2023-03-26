@@ -22,4 +22,9 @@ npm test
 npm run storybook
 ```
 
+## Project Images
+![scheduler](readme_photos/scheduler.png)
+![create_appointment](readme_photos/add_appointment.png)
+![delete_appointment](readme_photos/delete_an_appointment.png)
+
 
