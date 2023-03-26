@@ -79,5 +79,5 @@ export default function useApplicationData() {
     bookInterview,
     cancelInterview
   };
-}
+};
 

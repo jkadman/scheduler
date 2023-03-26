@@ -27,7 +27,7 @@ const Show = (props) => {
         </section>
       </section>
     </main>
-  )
-}
+  );
+};
 
 export default Show;

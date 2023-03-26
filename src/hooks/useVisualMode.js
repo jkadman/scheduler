@@ -15,5 +15,5 @@ const back = () => {
 }; 
 
   return { mode: history[history.length - 1], transition, back }; 
-}
+};
 

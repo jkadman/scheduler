@@ -9,7 +9,7 @@ describe("Appointments", () => {
   it("should book an interview", () => {
     cy.get("[alt=Add")
     .first()  
-    .click()
+    .click();
 
     cy.get("[data-testid=student-name-input]").type("Lydia Miller-Jones");
     cy.get("[alt='Sylvia Palmer']").click();
@@ -22,7 +22,7 @@ describe("Appointments", () => {
   it("should edit an interview", () => {
     cy.get("[alt=Edit]")
     .first()
-    .click({force: true})
+    .click({force: true});
 
     cy.get("[data-testid=student-name-input]").clear().type("Fredrick Burns");
     cy.get("[alt='Tori Malcolm']").click();
@@ -37,7 +37,7 @@ describe("Appointments", () => {
     .first()
     .click({force: true});
 
-    cy.contains("Confirm").click()
+    cy.contains("Confirm").click();
 
     cy.contains("deleting").should("exist");
     cy.contains("deleting").should("not.exist");

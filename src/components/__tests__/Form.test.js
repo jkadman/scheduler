@@ -32,10 +32,9 @@ describe("Form", () => {
   it("validates that the student name is not blank", () => {
     const save = jest.fn();
     
-     /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the student prop should be blank or undefined */
     const {getByText} = render (
       <Form interviewers={interviewers}  save={save} />
-    )
+    );
   
     fireEvent.click(getByText("Save"));
   
@@ -44,12 +43,11 @@ describe("Form", () => {
   });
   
   it("validates that the interviewer cannot be null", () => {
-    const save = jest.fn()
+    const save = jest.fn();
   
-    /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the interviewer prop should be null */
     const {getByText} = render (
       <Form interviewers={interviewers}  save={save} student="Lydia Miller-Jones" />
-    )
+    );
   
     fireEvent.click(getByText("Save"));
   
@@ -108,4 +106,3 @@ describe("Form", () => {
 });
 
 
-// not exactly sure where save from the form function comes in.  I think it's the form prop 'save', should explore that when I have time

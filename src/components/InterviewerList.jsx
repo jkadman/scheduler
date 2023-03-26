@@ -18,15 +18,16 @@ const InterviewerList = (props) => {
         setInterviewer={() => props.onChange(interviewer.id)}
       />
     )
-  })
+  });
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light"></h4>
       <ul className="interviewers__list">{interviewerMap}</ul>
     </section>
-  )
-}
+  );
+};
 InterviewerList.prototype = {
   interviewer: PropTypes.array.isRequired
-}
+};
+
 export default InterviewerList;

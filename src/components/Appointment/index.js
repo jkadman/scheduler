@@ -32,28 +32,28 @@ const Appointment = (props) => {
       student: name,
       interviewer
     };
-    transition(SAVING)
+    transition(SAVING);
     props.bookInterview(props.id, interview)
     .then(() => transition(SHOW))
-    .catch(() => transition(ERROR_SAVE, true ))
-  }
+    .catch(() => transition(ERROR_SAVE, true ));
+  };
   
   
   function onDelete() {
-    const appointmentId = props.id
+    const appointmentId = props.id;
       if (mode === CONFIRM) {
-        transition(DELETING, true)
+        transition(DELETING, true);
         props.cancelInterview(appointmentId)
        .then(() => transition(EMPTY))
-       .catch(() => transition(ERROR_DELETE, true))
+       .catch(() => transition(ERROR_DELETE, true));
       } else {
-        transition(CONFIRM)
-      }
-  }
+        transition(CONFIRM);
+      };
+  };
 
   function onEdit() {
-    transition(EDIT)
-  }
+    transition(EDIT);
+  };
   
 
 
@@ -66,17 +66,17 @@ const Appointment = (props) => {
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SAVING && (
         <Status message="saving" />
-      )}
+      )};
       {mode === DELETING && (
         <Status message="deleting" />
-      )}
+      )};
       {mode === CONFIRM && 
         <Confirm  
           message="Are you sure you would like to delete?"
           onCancel={back}
           onConfirm={onDelete}
             />
-      }
+      };
       {mode === SHOW && (
         <Show
           student={props.interview?.student}
@@ -84,14 +84,14 @@ const Appointment = (props) => {
           onDelete={onDelete}
           onEdit={onEdit}
         />
-      )}
+      )};
       {mode === CREATE && (
         <Form 
           interviewers = {props.interviewers}
           onCancel={() => back(EMPTY)}
           save={save}
         />
-      )}
+      )};
       {mode === EDIT && (
         <Form 
           name={props.interview.student}
@@ -100,22 +100,22 @@ const Appointment = (props) => {
           save={save}
           onCancel={back}
         />
-      )}
+      )};
       {mode === ERROR_DELETE &&
         <Error 
         message={"Error could not delete"}
         onClose={back}
         />
-      }
+      };
       {mode === ERROR_SAVE &&
         <Error
         message={"Error could not save"}
         onClose={back}
         />
-      }
+      };
     </article>
-  )
-}
+  );
+};
 
 export default Appointment;
 

@@ -3,14 +3,11 @@ import classNames from 'classnames';
 import "components/InterviewerListItem.scss"
 
 const InterviewerListItem = (props) => {
-  // console.log('id', props)
-  // console.log('ULI:', props)
-  // console.log('setInterviewer', props.setInterviewer)
 
   let interviewerClass = classNames({
     "interviewers__item": true,
     "interviewers__item--selected": props.selected
-  })
+  });
 
   return (
     <li className={interviewerClass}
@@ -23,7 +20,7 @@ const InterviewerListItem = (props) => {
       />
       {props.selected && props.name}
     </li>
-  )
-}
+  );
+};
 
 export default InterviewerListItem;

@@ -10,7 +10,7 @@ const Empty = (props) => {
         onClick={props.onAdd}
       />
     </main>
-  )
-}
+  );
+};
 
 export default Empty;

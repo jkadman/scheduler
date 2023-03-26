@@ -14,7 +14,7 @@ const Error = (props) => {
         onClick={props.onClose}
       />
     </main>
-  )
-}
+  );
+};
 
 export default Error;

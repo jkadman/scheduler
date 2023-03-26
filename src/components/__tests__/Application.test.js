@@ -23,7 +23,7 @@ describe("Application", () => {
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     const appointments = getAllByTestId(container, "appointment");
-    const appointment = appointments[0]
+    const appointment = appointments[0];
 
     fireEvent.click(getByAltText(appointment, "Add"));
 
@@ -32,7 +32,7 @@ describe("Application", () => {
     });
 
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
-    fireEvent.click(getByText(appointment, "Save"))
+    fireEvent.click(getByText(appointment, "Save"));
     
     expect(getByText(appointment, "saving")).toBeInTheDocument();
     
@@ -52,10 +52,10 @@ describe("Application", () => {
       appointment => queryByText(appointment, "Archie Cohen")
     );
 
-    fireEvent.click(getByAltText(appointment, "Delete"))
+    fireEvent.click(getByAltText(appointment, "Delete"));
 
     expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
-    fireEvent.click(queryByText(appointment, "Confirm"))
+    fireEvent.click(queryByText(appointment, "Confirm"));
 
     expect(getByText(appointment, "deleting")).toBeInTheDocument();
 
@@ -75,14 +75,14 @@ describe("Application", () => {
       appointment => queryByText(appointment, "Archie Cohen")
     );
 
-    fireEvent.click(getByAltText(appointment, "Edit"))
+    fireEvent.click(getByAltText(appointment, "Edit"));
 
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Fredrick" }
     });
 
     fireEvent.click(getByAltText(appointment, "Tori Malcolm"));
-    fireEvent.click(getByText(appointment, "Save"))
+    fireEvent.click(getByText(appointment, "Save"));
 
     expect(getByText(appointment, "saving")).toBeInTheDocument();
 
@@ -96,13 +96,12 @@ describe("Application", () => {
   })
   it("shows the save error when failing to save an appointment", async () => {
     axios.put.mockRejectedValueOnce();
-    const { container } = render(<Application />)
-    await waitForElement(() => getByText(container, "Archie Cohen"))
+    const { container } = render(<Application />);
+    await waitForElement(() => getByText(container, "Archie Cohen"));
 
     const appointment = getAllByTestId(container, "appointment").find(
       appointment => queryByText(appointment, "Archie Cohen")
     );
-    console.log('app', prettyDOM(appointment))
 
     fireEvent.click(queryByAltText(appointment, "Edit"));
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
@@ -118,7 +117,7 @@ describe("Application", () => {
 
     expect(getByText(appointment, "Save")).toBeInTheDocument();
 
-    fireEvent.click(queryByText(appointment, "Cancel"))
+    fireEvent.click(queryByText(appointment, "Cancel"));
 
     expect(getByText(container, "Archie Cohen")).toBeInTheDocument();
 
@@ -136,11 +135,11 @@ describe("Application", () => {
     const appointment = getAllByTestId(container, "appointment").find(
       appointment => queryByText(appointment, "Archie Cohen")
     );
-    fireEvent.click(queryByAltText(appointment, "Delete"))
+    fireEvent.click(queryByAltText(appointment, "Delete"));
 
     expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
 
-    fireEvent.click(queryByText(appointment, "Confirm"))
+    fireEvent.click(queryByText(appointment, "Confirm"));
 
     expect(getByText(appointment, "deleting")).toBeInTheDocument();
 
@@ -151,40 +150,8 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
 
-    expect(getByText(day, "1 spot remaining")).toBeInTheDocument()
+    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   })
 });
 
 
-// deleting test
-// 1. Render the Application.
-  // 2. Wait until the text "Archie Cohen" is displayed.
-  // 3. Click the "Delete" button on the booked appointment.
-  // 4. Check that the confirmation message is shown.
-  // 5. Click the "Confirm" button on the confirmation.
-  // 6. Check that the element with the text "Deleting" is displayed.
-  // 7. Wait until the element with the "Add" button is displayed.
-  // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
-
-  //editing test
-  // 1. Render the Application.
-  // 2. Wait until the text "Archie Cohen" is displayed.
-  // 3. Click the "Edit" button on the booked appointment.
-  // 4. Change the student name
-  // 5. Click the "save" button on the confirmation.
-  // 6. Check that the element with the text "saving" is displayed.
-  // 7. Wait until the element with the name is shown
-  // 8. Check that the DayListItem with the text "Monday" also has the text "1 spots remaining".
-/*
-
-/*
-plan for loads data, cancels an interview and increases the spots remaining for Monday by 1
-1 render application
-2 confirm that there is data to delete (maybe choose which data to delete)
-3 click on cancel
-4 confirm cancel
-5 confirm deleting shows up
-6 wait until an empty interview slot appears
-7 confirm that there is one extra spot available
-
-*/

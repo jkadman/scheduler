@@ -1,5 +1,4 @@
 import React from "react";
-// import { useState } from "react";
 import classNames from "classnames";
 
 import "components/Button.scss";
@@ -20,5 +19,5 @@ export default function Button(props) {
       {props.children}
       </button>
 
-   )
-}
+   );
+};
