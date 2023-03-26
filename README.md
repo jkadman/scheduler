@@ -23,8 +23,20 @@ npm run storybook
 ```
 
 ## Project Images
+```sh
+create a daily schedule
+```
 ![scheduler](readme_photos/scheduler.png)
+
+```sh
+add an appointment
+```
 ![create_appointment](readme_photos/add_appointment.png)
+
+```sh
+delete appointments that are no longer needed
+```
 ![delete_appointment](readme_photos/delete_an_appointment.png)
+
 
 
