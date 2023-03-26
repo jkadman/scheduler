@@ -1,5 +1,8 @@
 # Interview Scheduler
 
+An interview schedule I developed as a project while studying at Lighthouse Labs.  
+It uses React, a sql api and is tested using Jest and Cypress.
+
 ## Setup
 
 Install dependencies with `npm install`.
