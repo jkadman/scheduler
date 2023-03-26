@@ -22,19 +22,25 @@ npm test
 npm run storybook
 ```
 
+## Test database
+For test database, please follow instructions here:
+```sh
+https://github.com/jkadman/scheduler-api
+```
+
 ## Project Images
 ```sh
-create a daily schedule
+Create a daily schedule
 ```
 ![scheduler](readme_photos/scheduler.png)
 
 ```sh
-add an appointment
+Add an appointment
 ```
 ![create_appointment](readme_photos/add_appointment.png)
 
 ```sh
-delete appointments that are no longer needed
+Delete appointments that are no longer needed
 ```
 ![delete_appointment](readme_photos/delete_an_appointment.png)
 
